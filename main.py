@@ -86,10 +86,7 @@ def game():
             while running:
                 # Обработка событий
 
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        running = False
-                        game_continue = False
+
 
                 # Очистка экрана
                 screen.fill(BLACK)
@@ -158,11 +155,14 @@ def game():
                     #pygame.quit()
                 # Задержка в 0,5 секунды
                 time.sleep(0.01)
-
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        running = False
+                        game_continue = False
             # Завершение pygame
             # pygame.quit()
             game_continue = False
-
+            running = False
 
 # Запуск игры
 game()
