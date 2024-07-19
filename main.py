@@ -38,7 +38,9 @@ def game():
     while game_continue:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
+                game_continue = False
+                running = False
+                #pygame.quit()
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 # Обработка событий мыши
@@ -151,8 +153,9 @@ def game():
                     text = font.render("Победа! У вас " + str(score) + " очков", True, GREEN)
                     screen.blit(text, (50, 150))
                     pygame.display.flip()
-                    time.sleep(3)
-                    pygame.quit()
+                    time.sleep(2)
+                    game_continue = False
+                    #pygame.quit()
                 # Задержка в 0,5 секунды
                 time.sleep(0.01)
 
